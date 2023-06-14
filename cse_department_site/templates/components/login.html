@@ -1,45 +1,50 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load crispy_forms_tags %}
-{% load tailwind_filters %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} {% load
+tailwind_filters %} {% block content %}
 
-<div class="container mx-auto p-4 bg-white">
-    <div class="w-full md:w-1/2 lg:w-1/3 mx-auto my-12">
-      <h1 class="text-lg font-bold">log in to your account</h1>
-      <form class="flex flex-col mt-4" method="POST" action="">
-        {% csrf_token %}
-        <input
-            type="text"
-            name="username"
-            class="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
-            placeholder="Username"
-        />
-       
-        <input
-            type="password"
-            name="password"
-            class="px-4 py-3 mt-4 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
-            placeholder="Password"
-        />
-        
-        <button
-            type="submit"
-            class="mt-4 px-4 py-3  leading-6 text-base rounded-md border border-transparent text-white focus:outline-none bg-blue-500  hover:text-white focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer inline-flex items-center w-full justify-center items-center font-medium focus:outline-none"
-            value="Login"
-            >
-          Log in
-        </button>
-        <div class="flex flex-col items-center mt-5">
-          {% for message in messages %}
-            <p class="mt-1 text-xs font-light text-red-500">{{message}}</p>
-		  {% endfor %}
-          <p class="mt-1 text-xs font-light text-gray-500">
-            Register already?<a href = "{% url 'register' %}" class="ml-1 font-medium text-blue-400">Sign in now</a>
-            </p>
-        </div>
-      </form>
-    </div>
+<div class="container mx-auto p-4 bg-black">
+  <div
+    class="w-full md:w-1/2 lg:w-1/3 mx-auto my-12 bg-white border border-gray-200 p-2 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700"
+  >
+    <h1 class="px-6 py-3 w-1/2 text-lg font-bold w-full text-sm mx-auto">
+      Log In to your account
+    </h1>
+    <form class="flex flex-col mt-4" method="POST" action="">
+      {% csrf_token %}
+      <input
+        type="text"
+        name="username"
+        class="px-4 py-3 w-1/2 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 w-full text-sm mx-auto"
+        placeholder="Username"
+      />
+
+      <input
+        type="password"
+        name="password"
+        class="px-4 py-3 mx-auto mt-4 w-1/2 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+        placeholder="Password"
+      />
+
+      <button
+        type="submit"
+        class="mt-4 px-4 py-3 leading-6 text-base rounded-md border border-transparent text-white focus:outline-none bg-red-500 hover:text-white focus:ring-2 focus:ring-red-500 focus:ring-offset-2 mx-auto cursor-pointer inline-flex items-center w-1/3 justify-center items-center font-medium focus:outline-none"
+        value="Login"
+      >
+        Log in
+      </button>
+      <div class="flex flex-col items-center mt-5">
+        {% for message in messages %}
+        <p class="mt-1 text-xs font-light text-red-500">{{message}}</p>
+        {% endfor %}
+        <p class="mt-1 text-xs font-light text-gray-500">
+          Register already?<a
+            href="{% url 'register' %}"
+            class="ml-1 font-medium text-blue-400"
+            >Sign in now</a
+          >
+        </p>
+      </div>
+    </form>
   </div>
+</div>
 
 {% endblock content %}
