@@ -1,55 +1,45 @@
 {% load static %}
 
 <footer style="background-color: black;">
-    <div class='max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300'>
-      <div>
-        <h1 class='w-full text-3xl font-bold text-[#00df9a]'>DEPARTMENT OF CSE</h1>
-        <p class='py-4'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id odit ullam iste repellat consequatur libero reiciendis, blanditiis accusantium.</p>
-        <div class='flex justify-between md:w-[75%] my-6'>
-          <span class='icon'><i class="fa fa-facebook-square" style="font-size: 30px;"></i></span>
-          <span class='icon'><i class="fa fa-instagram" style="font-size: 30px;"></i></span>
-          <span class='icon'><i class="fa fa-twitter-square" style="font-size: 30px;"></i></span>
-          <span class='icon'><i class="fa fa-github-square" style="font-size: 30px;"></i></span>
-          <span class='icon'><i class="fa fa-dribbble-square" style="font-size: 30px;"></i></span>
-        </div>
-      </div>
-      <div class='lg:col-span-2 flex justify-between mt-6'>
-        <div>
-          <h6 class='font-medium text-gray-400'>Solutions</h6>
-          <ul>
-            <li class='py-2 text-sm'>somthing</li>
-            <li class='py-2 text-sm'>somthing</li>
-            <li class='py-2 text-sm'>somthing</li>
-            <li class='py-2 text-sm'>somthing</li>
-          </ul>
-        </div>
-        <div>
-          <h6 class='font-medium text-gray-400'>Support</h6>
-          <ul>
-            <li class='py-2 text-sm'>somthing</li>
-            <li class='py-2 text-sm'>somthing</li>
-            <li class='py-2 text-sm'>somthing</li>
-            <li class='py-2 text-sm'>somthing</li>
-          </ul>
-        </div>
-        <div>
-          <h6 class='font-medium text-gray-400'>Company</h6>
-          <ul>
-            <a href="{% url 'About' %}"><li class='py-2 text-sm'>About</li></a>
-            <a href="{% url 'gallery' %}"><li class='py-2 text-sm'>Gallery</li></a>
-            <a href="{% url 'home' %}#clubs"><li class='py-2 text-sm'>Clubs</li></a>
-          </ul>
-        </div>
-        <div>
-          <h6 class='font-medium text-gray-400'>Legal</h6>
-          <ul>
-            <li class='py-2 text-sm'>Policy</li>
-            <li class='py-2 text-sm'>Terms</li>
-          </ul>
-        </div>
-      </div>
+  <div class='max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300'>
+    <div>
+      <h1 class='w-full text-3xl font-bold text-[#00df9a]'>DEPARTMENT OF CSE</h1>
+      <p class='py-4'>
+      The CSE department explores the intersection of computer science and engineering, encompassing areas such as software development, algorithm design, artificial intelligence, networking, and cutting-edge technological advancements.</p>
+      <p class="text-gray-500 text-sm text-center sm:text-left">Copyright © 2023 | CSE Department : </br>ICFAI University Tripura Kamalghat, Mohanpur - </br>Ph-0381-286575
+      </p>
     </div>
-  </footer>
-  
-  
-
+    <div class='lg:col-span-2 flex justify-between mt-6'>
+      <div>
+        <h6 class='font-medium text-gray-400'>CSE Dept.</h6>
+        <ul>
+          <a href="{% url 'About' %}"><li class='py-2 text-sm'>About Us</li></a>
+          <a href="{% url 'facalty' %}"><li class='py-2 text-sm'>Faculty</li></a>
+          <a href="{% url 'gallery' %}"><li class='py-2 text-sm'>Gallery</li></a>
+        </ul>
+      </div>
+      <div>
+        <h6 class='font-medium text-gray-400'>Our facilities</h6>
+        <ul>
+          <a href="{% url 'resources' %}"><li class='py-2 text-sm'>Resources</li></a>
+          <a href="{% url 'home' %}#clubs"><li class='py-2 text-sm'>Clubs</li></a>
+          <a href="{% url 'home' %}#event-notice"><li class='py-2 text-sm'>Notice & Events</li></a>
+        </ul>
+      </div>
+      <div>
+        <h6 class='font-medium text-gray-400'>Connect With Us</h6>
+        <ul>
+          <a href="{% url 'student' %}"><li class='py-2 text-sm'>Students</li></a>
+          <a href="{% url 'alumai' %}"><li class='py-2 text-sm'>Alumni</li></a>
+          <a href="{% url 'About' %}#contact-us"><li class='py-2 text-sm'>Contact Us</li></a>
+        </ul>
+      </div>
+      <div>
+          <h6 class='font-medium text-gray-400'>Quick Links</h6>
+          <ul>
+            <a href="https://iutripura.edu.in/"><li class='py-2 text-sm'>IUTripura Website</li></a>
+            <a href="https://admission.iutripura.in/"><li class='py-2 text-sm'>Admission Website</li></a>
+          </ul>
+      </div>
+  </div>
+</footer>
