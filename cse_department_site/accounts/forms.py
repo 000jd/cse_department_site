@@ -20,7 +20,7 @@ class StudentForm(forms.ModelForm):
     """
     class Meta:
         model = Student
-        fields = ['student_id', 'full_name', 'contact_number', 'email', 'year', 'semester', 'field_of_interest']
+        fields = ['student_id', 'full_name', 'image', 'contact_number', 'email', 'year', 'semester', 'field_of_interest']
 
 class AlumniForm(forms.ModelForm):
     """
@@ -29,7 +29,7 @@ class AlumniForm(forms.ModelForm):
     """
     class Meta:
         model = Alumni
-        fields = ['full_name', 'contact_number', 'current_company', 'graduation_year', 'email']
+        fields = ['full_name', 'image', 'contact_number', 'current_company', 'graduation_year', 'email']
 
 
 class StaffForm(forms.ModelForm):
