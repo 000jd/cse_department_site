@@ -44,7 +44,7 @@ class Student(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='Student')
     student_id = models.CharField(max_length=100)
     full_name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='upload/', blank=True)
+    image = models.ImageField(upload_to='students/', blank=True)
     contact_number = models.IntegerField()
     email = models.EmailField(max_length=254)
     year = models.CharField(max_length=100, choices=YEAR_TYPE_CHOICES)
@@ -64,7 +64,7 @@ class Alumni(models.Model):
     """
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='alumni')
     full_name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='upload/', blank=True)
+    image = models.ImageField(upload_to='alumnis/', blank=True)
     contact_number = models.IntegerField()
     current_company = models.CharField(max_length=100)
     graduation_year = models.IntegerField()
@@ -83,7 +83,7 @@ class Staff(models.Model):
     """
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='staff')
     full_name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='upload/', blank=True)
+    image = models.ImageField(upload_to='staffs/', blank=True)
     designation = models.CharField(max_length=100)
     contact_number = models.IntegerField(blank=True, null=True)
     email = models.EmailField(max_length=254, default='Null')

@@ -81,3 +81,18 @@ class Message(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Resources(models.Model):
+    """
+    Model representing resources with topics, description, image, and URL link.
+    """
+    topic = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='resources/', blank=True)
+    url_link = models.URLField()
+
+    def __str__(self):
+        """
+        Returns a string representation of the resource.
+        """
+        return self.topic
