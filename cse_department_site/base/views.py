@@ -12,7 +12,8 @@ def homePage(request):
     events = Events.objects.order_by('-date_added')
     context = {'clubs': clubs,
                'notices': notices,
-               'events': events}
+               'events': events,
+               }
     return render(request, 'screens/home.html', context)
 
 def error_404(request, exception):
