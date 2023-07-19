@@ -24,32 +24,32 @@ class Student(models.Model):
     Model representing a student.
     """
     YEAR_TYPE_CHOICES = (
-        ('first', 'First Year'),
-        ('second', 'Second Year'),
-        ('third', 'Third Year'),
-        ('final', 'Final Year'),
+        ('First Year', 'First Year'),
+        ('Second Year', 'Second Year'),
+        ('Third Year', 'Third Year'),
+        ('Final Year', 'Final Year'),
     )
 
     SEMESTER_TYPE_CHOICES = (
-        ('sem1', 'Semester 1'),
-        ('sem2', 'Semester 2'),
-        ('sem3', 'Semester 3'),
-        ('sem4', 'Semester 4'),
-        ('sem5', 'Semester 5'),
-        ('sem6', 'Semester 6'),
-        ('sem7', 'Semester 7'),
-        ('sem8', 'Semester 8'),
+        ('Semester 1', 'Semester 1'),
+        ('Semester 2', 'Semester 2'),
+        ('Semester 3', 'Semester 3'),
+        ('Semester 4', 'Semester 4'),
+        ('Semester 5', 'Semester 5'),
+        ('Semester 6', 'Semester 6'),
+        ('Semester 7', 'Semester 7'),
+        ('Semester 8', 'Semester 8'),
     )
     
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='Student')
-    student_id = models.CharField(max_length=100)
+    student_id = models.CharField(max_length=100, default="As per colage records")
     full_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='students/', blank=True)
     contact_number = models.IntegerField()
     email = models.EmailField(max_length=254)
     year = models.CharField(max_length=100, choices=YEAR_TYPE_CHOICES)
     semester = models.CharField(max_length=100, choices=SEMESTER_TYPE_CHOICES)  # Provide a default value
-    field_of_interest = models.CharField(max_length=100, blank=True)
+    field_of_interest = models.CharField(max_length=100, blank=True, default="web dev / devops")
 
     def __str__(self):
         """
@@ -65,9 +65,12 @@ class Alumni(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='alumni')
     full_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='alumnis/', blank=True)
+    collage_id =  models.CharField(max_length=100, default="As per colage records")
+    Degree =  models.CharField(max_length=100, default = "B.Tech (CSE)")
+    Batch =  models.CharField(max_length=100, default="2019-2022")
     contact_number = models.IntegerField()
-    current_company = models.CharField(max_length=100)
-    graduation_year = models.IntegerField()
+    current_company = models.CharField(max_length=100, default="If any else None")
+    graduation_year = models.IntegerField(default="022")
     email = models.EmailField(max_length=254)
 
     def __str__(self):
@@ -84,11 +87,11 @@ class Staff(models.Model):
     user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='staff')
     full_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='staffs/', blank=True)
-    designation = models.CharField(max_length=100)
+    designation = models.CharField(max_length=100, default="Assistant Professor")
     contact_number = models.IntegerField(blank=True, null=True)
     email = models.EmailField(max_length=254, default='Null')
-    qualification = models.CharField(max_length=100, blank=True, default='Null')
-    experience = models.CharField(max_length=100, blank=True, default='Null')
+    qualification = models.CharField(max_length=100, blank=True)
+    experience = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         """
