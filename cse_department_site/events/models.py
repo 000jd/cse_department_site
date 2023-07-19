@@ -50,3 +50,22 @@ class Events(models.Model):
             self.slug = slugify(self.topic)
         
         super().save(*args, **kwargs)
+
+class Blog(models.Model):
+    """
+    Model representing a blog post.
+    """
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=100)  # Change from ForeignKey to CharField
+    content = models.TextField()
+    image = models.ImageField(upload_to='blog_images/', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_published = models.BooleanField(default=False)
+    slug = models.SlugField(unique=True)
+
+    def __str__(self):
+        """
+        Returns a string representation of the blog post.
+        """
+        return self.title

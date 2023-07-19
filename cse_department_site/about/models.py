@@ -96,3 +96,4 @@ class Resources(models.Model):
         Returns a string representation of the resource.
         """
         return self.topic
+
