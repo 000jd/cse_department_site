@@ -31,10 +31,21 @@ def student(request):
     return render(request, 'screens/student.html', context)
 
 
-def facalty(request):
+def faculty(request):
     data = Staff.objects.all()
-    context = {"facaltys": data}
-    return render(request, 'screens/facalty.html', context)
+    faculty_list = []
+    for faculty in data:
+        faculty_info = {
+            "full_name": faculty.full_name,
+            "qualification": faculty.qualification,
+            "email": faculty.email,
+            "image": faculty.image.url if faculty.image else None,
+        }
+        faculty_list.append(faculty_info)
+    context = {"faculty_list": faculty_list}
+    return render(request, 'screens/faculty.html', context)
+
+
 
 def About(request):
     form = MessageForm()

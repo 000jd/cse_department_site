@@ -23,13 +23,32 @@ class Student(models.Model):
     """
     Model representing a student.
     """
-    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='alumni')
+    YEAR_TYPE_CHOICES = (
+        ('first', 'First Year'),
+        ('second', 'Second Year'),
+        ('third', 'Third Year'),
+        ('final', 'Final Year'),
+    )
+
+    SEMESTER_TYPE_CHOICES = (
+        ('sem1', 'Semester 1'),
+        ('sem2', 'Semester 2'),
+        ('sem3', 'Semester 3'),
+        ('sem4', 'Semester 4'),
+        ('sem5', 'Semester 5'),
+        ('sem6', 'Semester 6'),
+        ('sem7', 'Semester 7'),
+        ('sem8', 'Semester 8'),
+    )
+    
+    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='Student')
     student_id = models.CharField(max_length=100)
     full_name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='upload/', blank=True)
     contact_number = models.IntegerField()
     email = models.EmailField(max_length=254)
-    year = models.CharField(max_length=100)
-    semester = models.CharField(max_length=100, default='')  # Provide a default value
+    year = models.CharField(max_length=100, choices=YEAR_TYPE_CHOICES)
+    semester = models.CharField(max_length=100, choices=SEMESTER_TYPE_CHOICES)  # Provide a default value
     field_of_interest = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
@@ -43,8 +62,9 @@ class Alumni(models.Model):
     """
     Model representing an alumni.
     """
-    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='student')
+    user = models.OneToOneField(Users, on_delete=models.CASCADE, related_name='alumni')
     full_name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='upload/', blank=True)
     contact_number = models.IntegerField()
     current_company = models.CharField(max_length=100)
     graduation_year = models.IntegerField()
