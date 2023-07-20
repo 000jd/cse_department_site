@@ -8,7 +8,8 @@ class Users(AbstractUser):
     """
     USER_TYPE_CHOICES = (
         ('student', 'Student'),
-        ('staff', 'Staff Member'),
+        ('faculty', 'faculty Member'),
+        ('faculty', 'Staff Member'),
         ('alumni', 'Alumni'),
     )
 
