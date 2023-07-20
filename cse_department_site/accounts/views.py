@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+
+from .models import Alumni, Student
 from .forms import AlumniForm, CreateUserForm, StaffForm, StudentForm
 from django.contrib import messages
 
@@ -38,15 +40,18 @@ def student_form(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
-            student = form.save(commit=False)
-            student.user = request.user
-            student.save()
-            return redirect('home')
+            student_id = form.cleaned_data['student_id']
+            if Student.objects.filter(student_id=student_id).exists():
+                messages.error(request, 'The entered student ID already exists.')
+            else:
+                student = form.save(commit=False)
+                student.user = request.user
+                student.save()
+                return redirect('home')
     else:
         form = StudentForm()
 
     return render(request, 'components/student_form.html', context={'form': form})
-
 
 @login_required
 def alumni_form(request):
@@ -56,15 +61,18 @@ def alumni_form(request):
     if request.method == 'POST':
         form = AlumniForm(request.POST)
         if form.is_valid():
-            alumni = form.save(commit=False)
-            alumni.user = request.user
-            alumni.save()
-            return redirect('home')
+            collage_id = form.cleaned_data['collage_id']
+            if Alumni.objects.filter(collage_id=collage_id).exists():
+                messages.error(request, 'The entered collage ID already exists.')
+            else:
+                alumni = form.save(commit=False)
+                alumni.user = request.user
+                alumni.save()
+                return redirect('home')
     else:
         form = AlumniForm()
 
     return render(request, 'components/alumni_form.html', context={'form': form})
-
 
 @login_required
 def staff_form(request):

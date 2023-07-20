@@ -49,7 +49,7 @@
             loading="lazy"
             width="1000"
             height="667"
-            class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl"
+            class="h-56 sm:h-full w-full sm:w-5/12 object-contain object-center rounded-lg transition duration-500 group-hover:rounded-xl"
           />
           <div class="sm:w-7/12 pl-0 p-5">
             <div class="space-y-2">
@@ -84,25 +84,25 @@
 
      <div class="container mx-auto">
       <div class="flex flex-col md:flex-row">
-          <div class="w-full md:w-1/2 border-black mb-8 mr-5"> <!-- Added mr-5 class -->
-              <div class="bg-white p-8 h-96 rounded-lg shadow-md">
-                  <div class="bg-indigo-900 border-b-2 border-gray-500 pb-2 rounded-t">
-                      <h3 class="text-white font-semibold text-lg mb-2 px-4 py-2">EVENTS</h3>
-                  </div>
-                  <div class="h-56 overflow-y-auto">
-                      <marquee direction="up" class="h-56">
-                          <ul class="pl-0 list-none leading-40">
-                              {% for event in events %}
-                              <li class="flex items-center">
-                                  <span class="mr-2">{{ event.topic }}</span>
-                              </li>
-                              <hr class="border-b-1 border-black w-full my-1">
-                              {% endfor %}
-                          </ul>
-                      </marquee>
-                  </div>
-              </div>
+        <div class="w-full md:w-1/2 border-black mb-8 mr-5"> <!-- Added mr-5 class -->
+          <div class="bg-white p-8 h-96 rounded-lg shadow-md">
+            <div class="bg-indigo-900 border-b-2 border-gray-500 pb-2 rounded-t">
+              <h3 class="text-white font-semibold text-lg mb-2 px-4 py-2">EVENTS</h3>
+            </div>
+            <div class="h-56 overflow-y-auto">
+              <marquee direction="up" class="h-56" scrollamount="3"> <!-- Adjust the scrollamount value as needed (e.g., 3, 5, 10, etc.) -->
+                <ul class="pl-0 list-none leading-40">
+                  {% for event in events %}
+                  <li class="flex items-center">
+                    <span class="mr-2">{{ event.topic }}</span>
+                  </li>
+                  <hr class="border-b-1 border-black w-full my-1">
+                  {% endfor %}
+                </ul>
+              </marquee>
+            </div>
           </div>
+        </div>
           <div class="w-full  border-black mb-8">
               <div class="bg-white p-8 h-96 rounded-lg shadow-md">
                   <div class="bg-indigo-900 border-b-2 border-gray-500 pb-2 rounded-t">
