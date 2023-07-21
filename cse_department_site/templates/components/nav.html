@@ -3,7 +3,7 @@
 <nav style="background-color: black">
   <div class="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
     <a href="{% url 'home' %}">
-      <img src="{% static 'images/logo-icfai final11.png' %}" alt="Logo" class="w-40 h-50">
+      <img src="{% static 'images/logo-icfai final11.png' %}" alt="Logo" class="w-40 h-50" />
     </a>
     <div class="menu-icon block md:hidden" x-data="{ open: false }">
       <svg
@@ -20,7 +20,7 @@
         <path d="M3 12h18M3 6h18M3 18h18"></path>
       </svg>
     </div>
-    <ul class="nav-links md:flex" :class="{ 'hidden': !open }" @click.away="open = false" x-data="{ open: false }">
+    <ul class="nav-links md:flex" x-data="{ open: false }" :class="{ 'hidden': !open }" @click.away="open = false">
       <li class="p-4">
         <a href="{% url 'home' %}">Home</a>
       </li>
@@ -57,13 +57,11 @@
           <a
             class="block px-4 py-2 mt-2 text-sm font-semibold text-black hover:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
             href="https://admission.iutripura.in/"
-            >Admission</a
-          >
+          >Admission</a>
           <a
             class="block px-4 py-2 mt-2 text-sm font-semibold text-black hover:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
             href="{% url 'resources' %}"
-            >Resources</a
-          >
+          >Resources</a>
         </div>
       </li>
       <li class="p-4 dropdown" x-data="{ openCommunity: false }">
@@ -93,33 +91,33 @@
           <a
             class="block px-4 py-2 mt-2 text-sm font-semibold text-black hover:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
             href="{% url 'student' %}"
-            >Students</a
-          >
+          >Students</a>
           <a
             class="block px-4 py-2 mt-2 text-sm font-semibold text-black hover:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
             href="{% url 'alumai' %}"
-            >Alumni</a
-          >
+          >Alumni</a>
           <a
             class="block px-4 py-2 mt-2 text-sm font-semibold text-black hover:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
             href="{% url 'facalty' %}"
-            >Faculty</a
-          >
+          >Faculty</a>
           <a
             class="block px-4 py-2 mt-2 text-sm font-semibold text-black hover:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
             href="{% url 'home' %}#event-notice"
-            >Notice & Events</a
-          >
+          >Notice & Events</a>
         </div>
       </li>
       <li class="p-4">
         {% if request.user.is_authenticated %}
         <a href="{% url 'logout' %}">
-          <button class="text-white bg-[#00df9a] py-2 px-4 rounded-md">Logout</button>
+          <button class="text-white bg-[#00df9a] py-2 px-4 rounded-md">
+            Logout
+          </button>
         </a>
         {% else %}
         <a href="{% url 'login' %}">
-          <button class="text-white bg-[#00df9a] py-2 px-4 rounded-md">Login</button>
+          <button class="text-white bg-[#00df9a] py-2 px-4 rounded-md">
+            Login
+          </button>
         </a>
         {% endif %}
       </li>
@@ -153,8 +151,8 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    top: 100%;
-    left: 0;
+    top: 60px;
+    right: 0;
   }
 
   .dropdown:hover .dropdown-content {
@@ -193,6 +191,11 @@
       background-color: #fff;
       border-radius: 4px;
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.md.hidden li {
+      display: block;
+      padding: 0.5rem;
     }
   }
 </style>
