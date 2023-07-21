@@ -31,7 +31,7 @@ def About(request):
         if form.is_valid():
             form.save()
 
-    messages.success(request, "massge sent success fully..")
+    messages.success(request, "message sent successfully..")
 
     context = {'form': form}
     return render(request, 'screens/About.html', context)
