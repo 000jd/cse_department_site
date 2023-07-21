@@ -1,0 +1,37 @@
+{% load static %}
+
+<section class="bg-black">
+  <div class="text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('{% static 'images/background.jpg' %}')">
+    <div class="max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center animate-fade-in">
+      <p class="text-[#00df9a] font-bold p-2">
+        DEPARTMENT OF CSE
+      </p>
+      <h1 class="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6">
+        Grow with Us.
+      </h1>
+      <div class="flex justify-center items-center">
+        <p class="md:text-5xl sm:text-4xl text-xl font-bold py-4">
+          Embrace the power of technology in the world of Computer Science and Engineering.
+        </p>
+        <span class="typed-text md:text-5xl sm:text-4xl text-xl font-bold md:pl-4 pl-2" id="typed"></span>
+      </div>
+      <p class="md:text-2xl text-xl font-bold text-gray-500">Join the Department of CSE and explore the world of data science, machine learning, and artificial intelligence.</p>
+      <button class="bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black"><a href="#aboutus">About Us</a></button>
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 2s ease-in-out;
+} 
+</style>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="bg-black">
+    <div class="container mx-auto px-6 py-10 animate-fade-in">
+        <h1 class="text-center text-3xl font-semibold capitalize text-white lg:text-4xl">Gallery</h1>
+
+        <p class="mt-4 text-center text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum quam voluptatibus</p>
+
+        <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-12 xl:grid-cols-3 xl:gap-12">
+            {% for image in images %}
+                <div class="shadow-white overflow-hidden">
+                    <img class="h-96 w-full rounded-lg object-cover transition duration-300 transform hover:scale-105" src="{{ image.image.url }}" alt="" />
+                    <!-- <h2 class="mt-4 text-2xl font-semibold capitalize text-white">{{ image.topic }}</h2>
+                    <p class="mt-2 text-lg text-white">{{ image.description }}</p> -->
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+

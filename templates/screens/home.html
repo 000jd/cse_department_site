@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+   {% include 'components/hero_section.html' %}
+
+   {% include 'components/about.html' %}
+  
+
+<div class="bg-black" id="clubs">
+  <!-- component -->
+
+  <div class="text-center text-5xl font-bold text-cyan-600">
+    Our club offers
+    <div class="relative inline-grid grid-cols-1 grid-rows-1 gap-12 overflow-hidden">
+      <span class="animate-word col-span-full row-span-full">Programing</span>
+      <span class="animate-word-delay-1 col-span-full row-span-full">Coding</span>
+      <span class="animate-word-delay-2 col-span-full row-span-full">Gidence</span>
+      <span class="animate-word-delay-3 col-span-full row-span-full">Compansinship</span>
+    </div>
+  </div>
+
+
+  <!-- component -->
+  <div class="grid min-h-[140px] w-full place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible text-gray-400 body-font">
+    <p class="block font-sans text-sm font-medium leading-normal text-inherit antialiased mx-5">
+      The clubs section of the website at ICFAI University Tripura provides students with opportunities for exposure and experience.<br>
+       It serves as a platform for students to meet like-minded individuals and engage in various activities within their areas of interest.
+    </p>
+    <div class="w-full md:w-7/12 pt-5 px-4 mb-8 mx-auto text-center">
+      <div class="text-sm text-gray-500 py-1 body-font">
+        Take risk now and <a class="text-gray-500 body-font" target="_blank">do something bold,</a>
+        don't regret it. <br /><br />
+      </div>
+    </div>
+  </div>
+
+
+  <!-- component -->
+  <div class="py-16 bg-gradient-to-br bg-transparent to-cyan-100">
+    <div class="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
+      <div class="grid gap-12 lg:grid-cols-2">
+        {% for club in clubs %}
+        <div class="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-100 shadow-xl hover:rounded-2xl transform transition-transform duration-500 ease-in-out hover:scale-110">
+          <img
+            src="{{ club.image.url }}"
+            alt="art cover"
+            loading="lazy"
+            width="1000"
+            height="667"
+            class="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl"
+          />
+          <div class="sm:w-7/12 pl-0 p-5">
+            <div class="space-y-2">
+              <div class="space-y-4">
+                <h4 class="text-2xl font-semibold text-cyan-900">{{ club.name }}</h4>
+                <p class="text-gray-600">{{ club.description }}</p>
+              </div>
+              <a href="{{ club.url }}" class="block w-max text-cyan-600 bg-transparent border border-cyan-600 hover:bg-cyan-600 hover:text-white py-2 px-4 rounded">View Site</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="w-full bg-black" id="event-notice">
+   
+   <div class="text-center text-5xl font-bold text-cyan-600">
+       Notice and Events.
+     </div>
+     <div class="grid min-h-[140px] w-full place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible text-gray-400 body-font">
+       <p class="block font-sans text-sm font-medium leading-normal text-inherit antialiased mx-5">
+         
+           The CSE Department's Notice and Events section keeps everyone updated on important information and upcoming activities,<br>
+           fostering active participation and connectivity within the department.
+       </p>
+     </div>
+
+
+     <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row">
+          <div class="w-full md:w-1/2 border-black mb-8 mr-5"> <!-- Added mr-5 class -->
+              <div class="bg-white p-8 h-96 rounded-lg shadow-md">
+                  <div class="bg-indigo-900 border-b-2 border-gray-500 pb-2 rounded-t">
+                      <h3 class="text-white font-semibold text-lg mb-2 px-4 py-2">EVENTS</h3>
+                  </div>
+                  <div class="h-56 overflow-y-auto">
+                      <marquee direction="up" class="h-56">
+                          <ul class="pl-0 list-none leading-40">
+                              {% for event in events %}
+                              <li class="flex items-center">
+                                  <span class="mr-2">{{ event.topic }}</span>
+                              </li>
+                              <hr class="border-b-1 border-black w-full my-1">
+                              {% endfor %}
+                          </ul>
+                      </marquee>
+                  </div>
+              </div>
+          </div>
+          <div class="w-full  border-black mb-8">
+              <div class="bg-white p-8 h-96 rounded-lg shadow-md">
+                  <div class="bg-indigo-900 border-b-2 border-gray-500 pb-2 rounded-t">
+                      <h3 class="text-white font-semibold text-lg mb-2 px-4 py-2">NOTICE BOARD</h3>
+                  </div>
+                  <div class="h-56 overflow-y-auto">
+                      <ul class="pl-0 list-none leading-10">
+                          {% for notice in notices %}
+                          <li>
+                              <span>{{ notice.topic }}</span>
+                          </li>
+                          {% endfor %}
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+
+<style>
+  @keyframes word {
+    0% {
+      transform: translateY(100%);
+    }
+    15% {
+      transform: translateY(-10%);
+      animation-timing-function: ease-out;
+    }
+    20% {
+      transform: translateY(0);
+    }
+    40%,
+    100% {
+      transform: translateY(-110%);
+    }
+  }
+
+  .animate-word {
+    animation: word 7s infinite;
+  }
+  .animate-word-delay-1 {
+    animation: word 7s infinite;
+    animation-delay: -1.4s;
+  }
+  .animate-word-delay-2 {
+    animation: word 7s infinite;
+    animation-delay: -2.8s;
+  }
+  .animate-word-delay-3 {
+    animation: word 7s infinite;
+    animation-delay: -4.2s;
+  }
+  .animate-word-delay-4 {
+    animation: word 7s infinite;
+    animation-delay: -5.6s;
+  }
+</style>
+
+
+{% endblock content %}

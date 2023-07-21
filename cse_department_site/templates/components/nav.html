@@ -126,19 +126,6 @@
 </nav>
 
 <style>
-  .nav-links.md {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .nav-links.md li {
-    display: block;
-    padding: 0.5rem 0;
-  }
-
-  .menu-icon {
-    cursor: pointer;
-  }
 
   .dropdown {
     position: relative;
@@ -158,102 +145,29 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
-
-  @media (min-width: 768px) {
-    .nav-links.md {
-      display: flex;
-    }
-
-    .menu-icon {
-      display: none;
-    }
+  @media only screen and (max-width: 800px) {
+  .nav-links{
+    margin-top: 250px;
+    margin-right: -20px;
+    background-color: black;
+    position: relative;
+    width: 40%;
+    z-index:99;
+    
+    
   }
-
-  @media (max-width: 767px) {
-    .nav-links.md {
-      display: none;
-    }
-
-    .menu-icon {
-      display: block;
-    }
-
-    .menu-icon svg {
-      fill: white;
-    }
-
-    .nav-links.md.hidden {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      background-color: #fff;
-      border-radius: 4px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    }
-
-    .nav-links.md.hidden li {
-      display: block;
-      padding: 0.5rem;
-    }
-
-    /* Add the following styles for dropdown content */
-    .dropdown-content {
-      position: absolute;
-      right: 0;
-      top: 100%;
-      width: 100%;
-    }
-  }
-  
-  @media (max-width: 767px) {
-    .nav-links.md {
-      display: none;
-    }
-
-    .menu-icon {
-      display: block;
-    }
-
-    .menu-icon svg {
-      fill: white;
-    }
-
-    .nav-links.md.hidden {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      background-color: #fff;
-      border-radius: 4px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      /* Updated */
-      width: 100%; /* Ensure the dropdown takes full width */
-      left: 0; /* Position the dropdown to the left side */
-    }
-
-    /* Adjust the padding of the links in mobile view */
-    .nav-links.md.hidden li {
-      padding: 0.5rem;
-    }
-
-    /* Add the following styles for dropdown content */
-    .dropdown-content {
-      position: relative; /* Change from absolute to relative */
-      top: 0; /* Reset the top position */
-      width: 100%; /* Ensure the dropdown takes full width */
-      left: 0; /* Position the dropdown to the left side */
-      background-color: #fff;
-      border-radius: 4px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    }
-  }
+}
+ 
 </style>
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
 <script>
   document.querySelector(".menu-icon").addEventListener("click", function () {
     document.querySelector(".nav-links").classList.toggle("hidden");
+    document.querySelector(".menu-icon").classList.toggle("");
   });
+
+
+
+  
+</script>
 </script>

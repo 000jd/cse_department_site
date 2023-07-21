@@ -1,0 +1,1 @@
+web: gunicorn cse_department_site.wsgi --log-file - 
