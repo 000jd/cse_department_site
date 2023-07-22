@@ -126,6 +126,12 @@
 </nav>
 
 <style>
+  .menu-icon {
+    position: fixed;
+    top: 20px; /* Adjust the top value to align the icon vertically */
+    right: 20px; /* Adjust the right value to align the icon horizontally */
+    z-index: 100; /* Ensure the icon is above other elements */
+  }
 
   .dropdown {
     position: relative;
@@ -149,7 +155,7 @@
     .nav-links {
       margin-top: 250px;
       margin-right: -20px;
-      background-color: rgba(0, 0, 0, 0.7); /* Use rgba() with alpha value */
+      background-color: rgba(0, 0, 0, 0.7);
       position: relative;
       width: 40%;
       z-index: 99;
@@ -165,6 +171,8 @@
   });
 
 
-
+  document.querySelector(".menu-icon").addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
   
 </script>
