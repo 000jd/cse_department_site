@@ -737,10 +737,6 @@ select {
   position: static;
 }
 
-.fixed {
-  position: fixed;
-}
-
 .absolute {
   position: absolute;
 }
@@ -910,6 +906,10 @@ select {
   margin-bottom: 0.75rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -1049,10 +1049,6 @@ select {
 
 .w-48 {
   width: 12rem;
-}
-
-.w-8 {
-  width: 2rem;
 }
 
 .max-w-\[1240px\] {
