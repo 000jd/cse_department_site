@@ -44,7 +44,7 @@ SECRET_KEY = DJANGO_SECRET_KEY
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'csedepartmentsite-production.up.railway.app',
-                 'https://csedepartmentsite-production.up.railway.app/', 'https://cse-department-site-6uh9fi1si-000jd.vercel.app/', 'cse-department-site-6uh9fi1si-000jd.vercel.app']
+                 'https://csedepartmentsite-production.up.railway.app/', 'https://panicky-shawl-moth.cyclic.app/', 'panicky-shawl-moth.cyclic.app']
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
@@ -52,7 +52,7 @@ CRISPY_TEMPLATE_PACK = "tailwind"
 
 CSRF_TRUSTED_ORIGINS = ['https://csedepartmentsite-production.up.railway.app',
                         'https://www.csedepartmentsite-production.up.railway.app',
-                        'https://cse-department-site-6uh9fi1si-000jd.vercel.app/']
+                        'https://panicky-shawl-moth.cyclic.app']
 # Application definition
 
 INSTALLED_APPS = [
