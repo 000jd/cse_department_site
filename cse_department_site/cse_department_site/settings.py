@@ -40,8 +40,8 @@ TAILWIND_APP_NAME = 'theme'
 SECRET_KEY = DJANGO_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = False
+#DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 #ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'csedepartmentsite-production.up.railway.app',
 #                 'https://csedepartmentsite-production.up.railway.app/', 'https://panicky-shawl-moth.cyclic.app/', 'panicky-shawl-moth.cyclic.app']
