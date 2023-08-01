@@ -55,7 +55,7 @@ CRISPY_TEMPLATE_PACK = "tailwind"
 #                        'https://www.csedepartmentsite-production.up.railway.app',
 #                        'https://panicky-shawl-moth.cyclic.app']
 
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://iutdepartmentofcse.onrender.com']
 
 # Application definition
 
