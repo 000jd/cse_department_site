@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
+from django.middleware.cache import UpdateCacheMiddleware, FetchFromCacheMiddleware
+
 from decouple import config
 
 import platform
@@ -46,7 +48,8 @@ DEBUG = False
 #ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'csedepartmentsite-production.up.railway.app',
 #                 'https://csedepartmentsite-production.up.railway.app/', 'https://panicky-shawl-moth.cyclic.app/', 'panicky-shawl-moth.cyclic.app']
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['iutdepartmentofcse.onrender.com', '*.onrender.com']
+
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
 CRISPY_TEMPLATE_PACK = "tailwind"
@@ -110,6 +113,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     "whitenoise.middleware.WhiteNoiseMiddleware",
+
+    # Cache-related middleware
+    "django.middleware.cache.UpdateCacheMiddleware",
+    "django.middleware.cache.FetchFromCacheMiddleware",
 ]
 
 CACHES = {
