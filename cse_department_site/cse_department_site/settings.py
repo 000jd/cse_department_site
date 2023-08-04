@@ -21,6 +21,8 @@ import platform
 
 DJANGO_SECRET_KEY = config('DJANGO_SECRET_KEY')
 REDIS_URL = config('REDIS_URL')
+DEBUG_MODE = config('DEBUG_MODE')
+
 
 if platform.system() != 'Windows':
     NPM_BIN_PATH = '/usr/bin/npm'
@@ -43,19 +45,20 @@ TAILWIND_APP_NAME = 'theme'
 SECRET_KEY = DJANGO_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-#DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = DEBUG_MODE
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-#ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'csedepartmentsite-production.up.railway.app',
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'csedepartmentsite-production.up.railway.app',
 #                 'https://csedepartmentsite-production.up.railway.app/', 'https://panicky-shawl-moth.cyclic.app/', 'panicky-shawl-moth.cyclic.app']
 
-ALLOWED_HOSTS = ['iutdepartmentofcse.onrender.com', '*.onrender.com']
+ALLOWED_HOSTS = ['iutdepartmentofcse.onrender.com',
+                 '*.onrender.com', '127.0.0.1', '127.0.0.1:8000']
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
 CRISPY_TEMPLATE_PACK = "tailwind"
 
-#CSRF_TRUSTED_ORIGINS = ['https://csedepartmentsite-production.up.railway.app',
+# CSRF_TRUSTED_ORIGINS = ['https://csedepartmentsite-production.up.railway.app',
 #                        'https://www.csedepartmentsite-production.up.railway.app',
 #                        'https://panicky-shawl-moth.cyclic.app']
 
