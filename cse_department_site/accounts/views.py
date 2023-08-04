@@ -91,7 +91,6 @@ def staff_form(request):
 
     return render(request, 'components/staff_form.html', context={'form': form})
 
-
 def login_page(request):
     """
     Renders the login page and handles user authentication.
