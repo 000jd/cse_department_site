@@ -20,6 +20,7 @@ from decouple import config
 import platform
 
 DJANGO_SECRET_KEY = config('DJANGO_SECRET_KEY')
+REDIS_URL = config('REDIS_URL')
 
 if platform.system() != 'Windows':
     NPM_BIN_PATH = '/usr/bin/npm'
@@ -122,7 +123,7 @@ MIDDLEWARE = [
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://red-cj6ahtp7120s739ijd0g:6379/1",
+        "LOCATION": f"{REDIS_URL}/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
