@@ -11,7 +11,7 @@
             {% if student_info.image %}
               <img src="{{ student_info.image }}" alt="student" class="w-20 h-20 rounded-full mr-4">
             {% else %}
-            <img src="{% static 'images/profil.png' %}" alt="faculty" class="w-20 h-20 rounded-full mr-4">
+            <img src="{% static 'images/profil.png' %}" alt="student" class="w-20 h-20 rounded-full mr-4">
             {% endif %}
             <div>
               <h2 class="text-xl font-semibold mb-2">{{ student_info.full_name }}</h2>

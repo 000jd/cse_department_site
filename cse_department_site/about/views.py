@@ -91,7 +91,7 @@ def faculty(request):
     else:
         context = data_payload
 
-    return render(request, 'screens/faculty.html', context)
+    return render(request, 'screens/facultys.html', context)
 
 def alumai(request):
     data_payload = cache.get('alumais_list_data')

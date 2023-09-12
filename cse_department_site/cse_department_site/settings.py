@@ -19,9 +19,17 @@ from decouple import config
 
 import platform
 
+#import dj_database_url
+
 DJANGO_SECRET_KEY = config('DJANGO_SECRET_KEY')
-REDIS_URL = config('REDIS_URL')
+
 DEBUG_MODE = config('DEBUG_MODE')
+
+if DEBUG_MODE != 'True':
+    REDIS_URL = config('EXTERNAL_REDIS_URL')
+else:
+    REDIS_URL = config('REDIS_URL')
+#HOST = config('HOST')
 
 
 if platform.system() != 'Windows':
@@ -52,7 +60,7 @@ DEBUG = DEBUG_MODE
 #                 'https://csedepartmentsite-production.up.railway.app/', 'https://panicky-shawl-moth.cyclic.app/', 'panicky-shawl-moth.cyclic.app']
 
 ALLOWED_HOSTS = ['iutdepartmentofcse.onrender.com',
-                 '*.onrender.com', '127.0.0.1', '127.0.0.1:8000']
+                '*.onrender.com', '127.0.0.1', '127.0.0.1:8000']
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
@@ -161,12 +169,20 @@ AUTH_USER_MODEL = 'accounts.Users'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+#sqlite3 database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+#postgresql database
+#DATABASES = {
+#    'default': dj_database_url.config(
+#        default=HOST
+#    )
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
