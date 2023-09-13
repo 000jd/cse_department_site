@@ -6,8 +6,8 @@ class Gallery(models.Model):
     """
     Model representing a gallery.
     """
-    topic = models.CharField(max_length=255)
-    slug = models.SlugField(blank=True, null=True)
+    topic = models.CharField(max_length=255, db_index=True)  
+    slug = models.SlugField(blank=True, null=True, db_index=True)
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='upload/', blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
@@ -48,8 +48,8 @@ class Club(models.Model):
     """
     Model representing a club.
     """
-    name = models.CharField(max_length=100)
-    slug = models.SlugField(blank=True, null=True)
+    name = models.CharField(max_length=100, db_index=True)  
+    slug = models.SlugField(blank=True, null=True, db_index=True)
     description = models.TextField()
     image = models.ImageField(upload_to='club_images/')
     url = models.URLField()
