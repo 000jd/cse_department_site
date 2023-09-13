@@ -25,11 +25,11 @@ DJANGO_SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 DEBUG_MODE = config('DEBUG_MODE')
 
-if DEBUG_MODE != 'True':
-    REDIS_URL = config('EXTERNAL_REDIS_URL')
-else:
-    REDIS_URL = config('REDIS_URL')
-#HOST = config('HOST')
+#if DEBUG_MODE != 'True':
+    #REDIS_URL = config('EXTERNAL_REDIS_URL')
+#else:
+    #REDIS_URL = config('REDIS_URL')
+REDIS_URL = config('REDIS_URL')
 
 
 if platform.system() != 'Windows':
